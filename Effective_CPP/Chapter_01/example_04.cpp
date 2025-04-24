@@ -37,6 +37,7 @@ ABEntry::ABEntry(const std::string& name, const std::string& address, const std:
     numTimesConsulted = 0;
 }
 
+// 매개변수가 없는 생성자도 이렇게 호출하는 편이 좋다.
 ABEntry::ABEntry()
 : theName(),
   theAddress(),
