@@ -23,4 +23,13 @@ int main()
 
     processWidget(std::shared_ptr<Widget>(new Widget), priority_throwError(true));
     // priority에서 에러 발생 시킴
-}
+    // 만약 컴파일러가 
+    // 1. new Widget
+    // 2. priority() 호출
+    // 3. std::shared_ptr<Widget> 호출 순서로 실행했다면?
+    // 4. 자원 호출이 제대로 되지 않고 Widget 자원이 누출됨
+
+    auto pw = std::shared_ptr<Widget>(new Widget);
+    processWidget(pw, priority_throwError(true)); 
+    // priority()에서 에러가 나더라도, 자원 누출은 안됨.
+} 
